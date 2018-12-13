@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: cowrie-service
+spec:
+  selector:
+    app: cowrie
+  ports:
+  - protocol: TCP
+    name: ssh-honeypot
+    port: 2222
+    targetPort: 2222
+  - protocol: TCP
+    name: telnet-honeypot
+    port: 2223
+    targetPort: 2223
