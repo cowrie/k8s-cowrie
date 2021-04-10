@@ -6,8 +6,7 @@ all: lint
 
 .PHONY: lint
 lint:
-	yamllint cowrie-pod.yaml
-	yamllint cowrie-service.yaml
+	yamllint .
 
 .PHONY: pre-commit
 pre-commit:
