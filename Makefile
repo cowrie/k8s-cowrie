@@ -1,0 +1,34 @@
+# This `Makefile` is intended for Cowrie developers.
+
+# Dummy target `all`
+.PHONY: all
+all:
+
+.PHONY: lint
+lint:
+	yamllint cowrie-pod.yaml
+	yamllint cowrie-service.yaml
+
+.PHONY: clean
+clean:
+	rm -rf _trial_temp build dist
+
+.PHONY: pre-commit
+pre-commit:
+	pre-commit run --all-files
+
+.PHONY: pip-upgrade
+pip-upgrade:
+	pip install --upgrade -r requirements.txt
+
+.PHONY: pip-check
+pip-check:
+	pip check
+
+.PHONY: dependency-upgrade
+dependency-upgrade:
+	git checkout master
+	-git branch -D "dependency-upgrade-`date -u +%Y-%m-%d`"
+	git checkout -b "dependency-upgrade-`date -u +%Y-%m-%d`"
+	pur -r requirements.txt
+	git commit -m "dependency upgrade `date -u`" requirements*.txt
