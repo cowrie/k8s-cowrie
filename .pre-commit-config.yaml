@@ -4,3 +4,9 @@ repos:
     rev: "0.2.0"
     hooks:
       - id: kube-manifest-lint
+  - repo: https://github.com/Agilicus/pre-commit-hook-k8svalidate.git
+    rev: v0.0.8
+    hooks:
+      - id: k8svalidate
+        args: [--exclude, "**/*.patch.yaml"]
+        files: .yaml$
