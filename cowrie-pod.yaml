@@ -15,5 +15,19 @@ spec:
         drop:
           - all
     ports:
-      - containerPort: 2222
-      - containerPort: 2223
+      - name: ssh-port
+        containerPort: 2222
+        hostPort: 22
+      - name: telnet-port
+        containerPort: 2223
+        hostPort: 23
+    readinessProbe:
+      tcpSocket:
+        port: 2222
+      initialDelaySeconds: 5
+      periodSeconds: 60
+    livenessProbe:
+      tcpSocket:
+        port: 2222
+      initialDelaySeconds: 15
+      periodSeconds: 60
