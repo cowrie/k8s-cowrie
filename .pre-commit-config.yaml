@@ -1,0 +1,6 @@
+---
+repos:
+  - repo: https://codeberg.org/hjacobs/kube-manifest-lint
+    rev: "0.2.0"
+    hooks:
+      - id: kube-manifest-lint
