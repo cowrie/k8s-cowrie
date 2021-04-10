@@ -2,16 +2,12 @@
 
 # Dummy target `all`
 .PHONY: all
-all:
+all: lint
 
 .PHONY: lint
 lint:
 	yamllint cowrie-pod.yaml
 	yamllint cowrie-service.yaml
-
-.PHONY: clean
-clean:
-	rm -rf _trial_temp build dist
 
 .PHONY: pre-commit
 pre-commit:

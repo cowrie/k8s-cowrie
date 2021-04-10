@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: Pod
 metadata:
@@ -9,27 +10,27 @@ metadata:
     app.kubernetes.io/part-of: cowrie
 spec:
   containers:
-  - name: cowrie
-    image: cowrie/cowrie:latest
-    imagePullPolicy: Always
-    securityContext:
+    - name: cowrie
+      image: cowrie/cowrie:latest
+      imagePullPolicy: Always
+      securityContext:
         runAsNonRoot: true
         allowPrivilegeEscalation: false
-    capabilities:
+      capabilities:
         drop:
           - all
-    ports:
-      - name: ssh-port
-        containerPort: 2222
-      - name: telnet-port
-        containerPort: 2223
-    readinessProbe:
-      tcpSocket:
-        port: 2222
-      initialDelaySeconds: 5
-      periodSeconds: 60
-    livenessProbe:
-      tcpSocket:
-        port: 2222
-      initialDelaySeconds: 15
-      periodSeconds: 60
+      ports:
+        - name: ssh-port
+          containerPort: 2222
+        - name: telnet-port
+          containerPort: 2223
+      readinessProbe:
+        tcpSocket:
+          port: 2222
+        initialDelaySeconds: 5
+        periodSeconds: 60
+      livenessProbe:
+        tcpSocket:
+          port: 2222
+        initialDelaySeconds: 15
+        periodSeconds: 60
