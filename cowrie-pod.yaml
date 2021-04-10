@@ -3,11 +3,15 @@ kind: Pod
 metadata:
   name: cowrie-pod
   labels:
-    app: cowrie
+    app.kubernetes.io/name: cowrie
+    app.kubernetes.io/instance: cowrie-abcxzy
+    app.kubernetes.io/component: honeypot
+    app.kubernetes.io/part-of: cowrie
 spec:
   containers:
   - name: cowrie
     image: cowrie/cowrie:latest
+    imagePullPolicy: Always
     securityContext:
         runAsNonRoot: true
         allowPrivilegeEscalation: false
@@ -17,10 +21,8 @@ spec:
     ports:
       - name: ssh-port
         containerPort: 2222
-        hostPort: 22
       - name: telnet-port
         containerPort: 2223
-        hostPort: 23
     readinessProbe:
       tcpSocket:
         port: 2222
