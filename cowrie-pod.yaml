@@ -8,6 +8,12 @@ spec:
   containers:
   - name: cowrie
     image: cowrie/cowrie:latest
+    securityContext:
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+    capabilities:
+        drop:
+          - all
     ports:
       - containerPort: 2222
       - containerPort: 2223
