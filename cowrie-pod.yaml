@@ -34,3 +34,8 @@ spec:
           port: 2222
         initialDelaySeconds: 15
         periodSeconds: 60
+      volumeMounts:
+        - name: cowrie-var
+          mountPath: "/cowrie/cowrie-git/var"
+        - name: cowrie-etc
+          mountPath: "/cowrie/cowrie-git/etc"
