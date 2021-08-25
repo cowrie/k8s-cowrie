@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: cowrie-pod
+  name: cowrie
   labels:
     app.kubernetes.io/name: cowrie
     app.kubernetes.io/instance: cowrie-abcxzy
