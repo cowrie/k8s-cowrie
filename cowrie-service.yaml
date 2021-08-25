@@ -5,7 +5,7 @@ metadata:
   name: cowrie-service
 spec:
   selector:
-    app: cowrie
+    app.kubernetes.io/name: cowrie
   ports:
     - protocol: TCP
       name: ssh-honeypot
