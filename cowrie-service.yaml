@@ -2,16 +2,19 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: cowrie-service
+  name: cowrie
 spec:
+  type: NodePort
   selector:
     app.kubernetes.io/name: cowrie
   ports:
     - protocol: TCP
       name: ssh-honeypot
+      nodePort: 32222
       port: 2222
       targetPort: 2222
     - protocol: TCP
       name: telnet-honeypot
+      nodePort: 32223
       port: 2223
       targetPort: 2223
