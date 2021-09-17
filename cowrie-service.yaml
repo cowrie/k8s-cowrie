@@ -3,6 +3,11 @@ kind: Service
 apiVersion: v1
 metadata:
   name: cowrie
+  labels:
+    app.kubernetes.io/name: cowrie
+    app.kubernetes.io/instance: cowrie-abcxzy
+    app.kubernetes.io/component: honeypot
+    app.kubernetes.io/part-of: cowrie
 spec:
   type: NodePort
   selector:
