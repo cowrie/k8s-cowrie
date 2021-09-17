@@ -31,11 +31,11 @@ spec:
           containerPort: 2223
       readinessProbe:
         tcpSocket:
-          port: 2222
+          port: ssh-port
         initialDelaySeconds: 5
         periodSeconds: 60
       livenessProbe:
         tcpSocket:
-          port: 2222
+          port: ssh-port
         initialDelaySeconds: 15
         periodSeconds: 60
