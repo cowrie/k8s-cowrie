@@ -8,6 +8,7 @@ all: lint
 lint:
 	yamllint .
 	kube-manifest-lint cowrie-service.yaml cowrie-pod.yaml
+	kube-linter lint cowrie-service.yaml cowrie-pod.yaml
 
 .PHONY: pre-commit
 pre-commit:
