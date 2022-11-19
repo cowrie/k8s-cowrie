@@ -1,3 +1,4 @@
 pre-commit==2.15.0
 pur==5.4.2
 yamllint==1.26.3
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
